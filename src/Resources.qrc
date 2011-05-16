@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/MediaControls.qml</file>
+        <file>qml/IconButton.qml</file>
+        <file>qml/Slider.qml</file>
+    </qresource>
+</RCC>

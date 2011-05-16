@@ -1,0 +1,7 @@
+.DS_Store
+.moc
+.rcc
+.obj
+bin
+*.user
+Makefile
