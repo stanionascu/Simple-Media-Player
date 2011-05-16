@@ -26,8 +26,6 @@ Rectangle {
     property alias position: seekSlider.value;
     property bool paused: false;
 
-    signal pause();
-    signal resume();
     signal seek(int position);
 
     id: mediaControls;
@@ -85,10 +83,6 @@ Rectangle {
 
         onClicked: {
             mediaControls.paused = !mediaControls.paused;
-            if (mediaControls.paused)
-                mediaControls.pause();
-            else
-                mediaControls.resume();
         }
     }
     Text {
@@ -105,12 +99,6 @@ Rectangle {
         anchors.leftMargin: 15;
         anchors.rightMargin: 15;
 
-        onPressed: {
-            mediaControls.pause();
-        }
-        onReleased: {
-            mediaControls.resume();
-        }
         onSeeked: {
             mediaControls.seek(seekValue);
         }
