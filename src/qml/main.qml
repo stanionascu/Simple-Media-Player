@@ -70,6 +70,13 @@ VideoItem {
         duration: video.duration / 1000;
         position: video.position / 1000;
 
+        onPausedChanged: {
+            if (mediaControls.paused)
+                video.pause();
+            else
+                video.resume();
+        }
+
         onSeek: {
             video.position = position * 1000;
         }
