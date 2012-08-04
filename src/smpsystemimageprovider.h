@@ -21,12 +21,12 @@
 #ifndef SMPSYSTEMIMAGEPROVIDER_H
 #define SMPSYSTEMIMAGEPROVIDER_H
 
-#include <QDeclarativeImageProvider>
+#include <QQuickImageProvider>
 
-class SMPSystemImageProvider : public QDeclarativeImageProvider
+class SMPSystemImageProvider : public QQuickImageProvider
 {
 public:
-    SMPSystemImageProvider(QDeclarativeImageProvider::ImageType imageType = QDeclarativeImageProvider::Pixmap);
+    SMPSystemImageProvider(QQuickImageProvider::ImageType imageType = QQuickImageProvider::Pixmap);
     virtual ~SMPSystemImageProvider();
 
     QPixmap requestPixmap(const QString &id, QSize *size, const QSize &requestedSize);

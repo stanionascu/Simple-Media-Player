@@ -38,8 +38,8 @@ SMPViewPrivate::~SMPViewPrivate()
 {
 }
 
-SMPView::SMPView(QWidget *parent) :
-    QDeclarativeView(parent),
+SMPView::SMPView(QWindow *parent) :
+    QQuickView(parent),
     d_ptr(new SMPViewPrivate)
 {
     d_ptr->q_ptr = this;
@@ -83,16 +83,16 @@ void SMPView::setAspectRatio(qreal ratio)
 
 void SMPView::resize(int w, int h)
 {
-    QDeclarativeView::resize(w, h);
+    QQuickView::resize(w, h);
 }
 
 void SMPView::resizeEvent(QResizeEvent *event)
 {
-    if (forceAspectRatio() && !isFullScreen()) {
+    if (forceAspectRatio()) {
         qreal ratio = (qreal)event->size().width() / (qreal)event->size().height();
         if (ratio != aspectRatio()) {
             resize(event->size().width(), event->size().width() / aspectRatio());
         }
     }
-    QDeclarativeView::resizeEvent(event);
+    QQuickView::resizeEvent(event);
 }

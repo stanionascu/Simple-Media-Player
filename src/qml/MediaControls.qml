@@ -18,10 +18,10 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **************************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 2.0
 
 Rectangle {
-    property bool active: false;
+    property bool active: true
     property alias duration: seekSlider.maximumValue;
     property alias position: seekSlider.value;
     property bool paused: false;
@@ -30,7 +30,7 @@ Rectangle {
 
     id: mediaControls;
     state: "OFF";
-    opacity: 0.0;
+
 
     MouseArea {
         anchors.fill: parent;

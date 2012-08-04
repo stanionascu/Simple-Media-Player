@@ -20,20 +20,17 @@
 
 #include <QApplication>
 #include <QDebug>
-#include <QDeclarativeContext>
-#include <QDeclarativeEngine>
-#include <QDeclarativeItem>
-#include <QDeclarativeView>
+#include <QQmlContext>
+#include <QQmlEngine>
+#include <QQuickItem>
+#include <QQuickView>
 #include <QDesktopWidget>
 #include <QFileInfo>
 #include <QGraphicsVideoItem>
 #include <QMediaContent>
 #include <QMediaPlayer>
 
-#include <QGLWidget>
-
 #include "smpview.h"
-#include "smpvideoitem.h"
 #include "smpsystemimageprovider.h"
 
 int main(int argc, char **argv)
@@ -41,13 +38,8 @@ int main(int argc, char **argv)
     QApplication app(argc, argv);
 
     qmlRegisterType<SMPView>("com.ionascu.SMP", 1, 0, "View");
-    qmlRegisterType<SMPVideoItem>("com.ionascu.SMP", 1, 0, "VideoItem");
 
-    QGLWidget *viewport = new QGLWidget;
     SMPView *view = new SMPView;
-    view->setViewport(viewport);
-    view->setBackgroundBrush(Qt::black);
-    view->setViewportUpdateMode(SMPView::FullViewportUpdate);
     view->setResizeMode(SMPView::SizeRootObjectToView);
     view->engine()->addImageProvider("system", new SMPSystemImageProvider);
 
@@ -60,7 +52,6 @@ int main(int argc, char **argv)
     }
 
     view->setSource(QUrl("qrc:///qml/main.qml"));
-    view->move(0, 0);
     view->show();
 
     return app.exec();

@@ -21,11 +21,11 @@
 #ifndef SMPVIEW_H
 #define SMPVIEW_H
 
-#include <QDeclarativeView>
+#include <QQuickView>
 
 class SMPViewPrivate;
 
-class SMPView : public QDeclarativeView
+class SMPView : public QQuickView
 {
     Q_OBJECT
 
@@ -33,7 +33,7 @@ class SMPView : public QDeclarativeView
     Q_PROPERTY(bool forceAspectRatio READ forceAspectRatio WRITE setForceAspectRatio NOTIFY forceAspectRatioChanged)
     Q_PROPERTY(qreal aspectRatio READ aspectRatio WRITE setAspectRatio NOTIFY aspectRatioChanged)
 public:
-    SMPView(QWidget *parent = 0);
+    SMPView(QWindow *parent = 0);
     virtual ~SMPView();
 
     QSize desktopSize() const;

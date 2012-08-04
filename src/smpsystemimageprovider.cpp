@@ -24,8 +24,8 @@
 #include <QStyle>
 #include <QDebug>
 
-SMPSystemImageProvider::SMPSystemImageProvider(QDeclarativeImageProvider::ImageType imageType) :
-    QDeclarativeImageProvider(imageType)
+SMPSystemImageProvider::SMPSystemImageProvider(QQuickImageProvider::ImageType imageType) :
+    QQuickImageProvider(imageType)
 {
 }
 

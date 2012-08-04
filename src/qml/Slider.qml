@@ -18,7 +18,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **************************************************************************************/
 
-import QtQuick 1.0
+import QtQuick 2.0
 
 Rectangle {
     property int value: 0;
@@ -51,7 +51,7 @@ Rectangle {
         onReleased: {
             slider.released();
         }
-        onMousePositionChanged: {
+        onMouseXChanged: {
             if (mouseX > 0 && mouseX < width)
                 slider.seeked(maximumValue * (mouseX / width));
         }

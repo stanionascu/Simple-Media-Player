@@ -1,6 +1,5 @@
 SOURCES += \
     src/main.cpp \
-    src/smpvideoitem.cpp \
     src/smpsystemimageprovider.cpp \
     src/smpview.cpp
 
@@ -14,8 +13,6 @@ RESOURCES += \
     src/Resources.qrc
 
 HEADERS += \
-    src/smpvideoitem.h \
-    src/smpvideoitem_p.h \
     src/smpsystemimageprovider.h \
     src/smpview.h \
     src/smpview_p.h

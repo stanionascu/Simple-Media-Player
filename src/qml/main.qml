@@ -18,45 +18,41 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 **************************************************************************************/
 
-import Qt 4.7;
-import com.ionascu.SMP 1.0;
+import QtQuick 2.0
+import QtMultimedia 5.0
+import com.ionascu.SMP 1.0
 
-VideoItem {
-
-    id: video;
-    source: currentVideo;
+Rectangle {
+    id: root
     width: 320;
     height: 240;
+    color: "black"
 
-    onSourceChanged: {
-        video.play();
-        video.volume = 100;
-    }
+    Video {
+        id: video
+        anchors.fill: parent
+        source: "file:///home/muller/Videos/trailer_1080p.mov"
 
-    onResolutionChanged: {
-        window.forceAspectRatio = false;
-        if (window.desktopSize.width >= video.resolution.width) {
-            video.width = video.resolution.width;
-            video.height = video.resolution.height;
-        } else {
-            video.width = window.desktopSize.width;
-            video.height = window.desktopSize.width / video.aspectRatio;
+        Component.onCompleted: {
+            play()
         }
-        window.resize(video.width, video.height);
-        window.aspectRatio = video.aspectRatio;
-        window.forceAspectRatio = true;
+
+        onPlaying: {
+            mediaControls.paused = false
+        }
+
+        onPaused: {
+            mediaControls.paused = true
+        }
     }
 
     MouseArea {
-        anchors.fill: parent;
+        anchors.fill: parent
         onClicked: {
-            if (mediaControls.active)
-                mediaControls.hide();
+            if (mediaControls.state === "ON")
+                mediaControls.state = "OFF"
             else
-                mediaControls.show();
-        }
-        onDoubleClicked: {
-            video.fullscreen = !video.fullscreen;
+                mediaControls.state = "ON"
         }
     }
 
@@ -72,13 +68,12 @@ VideoItem {
 
         onPausedChanged: {
             if (mediaControls.paused)
-                video.pause();
+                video.play()
             else
-                video.resume();
+                video.pause()
         }
 
         onSeek: {
-            video.position = position * 1000;
         }
     }
 }
