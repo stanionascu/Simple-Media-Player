@@ -1,4 +1,4 @@
-QT += quick phonon multimedia multimediawidgets
+QT += quick multimedia multimediawidgets
 
 OBJECTS_DIR = .obj
 MOC_DIR = .moc
