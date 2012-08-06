@@ -36,7 +36,6 @@
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-
     qmlRegisterType<SMPView>("com.ionascu.SMP", 1, 0, "View");
 
     SMPView *view = new SMPView;

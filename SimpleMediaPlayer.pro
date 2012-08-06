@@ -1,4 +1,4 @@
-QT += quick multimedia multimediawidgets
+QT += quick widgets multimedia multimediawidgets
 
 OBJECTS_DIR = .obj
 MOC_DIR = .moc

@@ -31,7 +31,7 @@ Rectangle {
     Video {
         id: video
         anchors.fill: parent
-        source: "file:///home/muller/Videos/trailer_1080p.mov"
+        source: currentVideo
 
         Component.onCompleted: {
             play()
